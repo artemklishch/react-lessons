@@ -7,7 +7,6 @@ const rootElement = document.querySelector('#root');
 
 class SearchFiled extends Component{
   render(){
-    console.log(this.props);
     return (
       <div className="search">
         <h1 className="search__title">{`Hello, ${this.props.name}. What to search for you`}</h1>
@@ -21,4 +20,4 @@ class SearchFiled extends Component{
 }
 
 
-ReactDOM.render(<SearchFiled name="Bob" />, rootElement);
+ReactDOM.render(<SearchFiled name="Tom" />, rootElement);
