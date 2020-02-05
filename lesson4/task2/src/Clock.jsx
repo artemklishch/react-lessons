@@ -11,7 +11,7 @@ class Clock extends Component{
   }
   render(){
     <div className="clock">
-      <p className="clock__location"></p>
+  <p className="clock__location">{this.props.location}</p>
       <p className="clock__time"></p>
     </div>
   }
