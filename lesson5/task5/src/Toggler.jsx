@@ -10,8 +10,8 @@ class Toggler extends Component{
   changeText(){
     this.setState({
       text: this.state.text === 'Off' 
-        ? this.state.text = 'On'
-        : this.state.text = 'Off'
+        ? 'On'
+        : 'Off'
     })
   }
   render(){
