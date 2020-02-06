@@ -8,7 +8,7 @@ class Auth extends Component {
     super(props);
     this.state = {
       isOnline: true,
-      markForSpinner: 0
+      markForSpinner: 1
     };
   }
   handleLogin = () => {
