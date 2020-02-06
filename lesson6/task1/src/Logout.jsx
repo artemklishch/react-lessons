@@ -6,6 +6,9 @@ class Logout extends Auth{
   constructor(props){
     super(props);
   }
+  handleLogout = () => {
+  super.handleLogout;
+  };
   render(){
     return (
       <button className="btn logout" onClick={this.handleLogout}>Logout</button>
