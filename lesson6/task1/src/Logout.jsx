@@ -1,18 +1,9 @@
 import React from 'react';
-import './index.scss';
-import Auth from './Auth';
+import './index.scss';;
 
-class Logout extends Auth{
-  constructor(props){
-    super(props);
-  }
-  handleLogout = () => {
-  super.handleLogout;
-  };
-  render(){
+const Logout = props => {
     return (
-      <button className="btn logout" onClick={this.handleLogout}>Logout</button>
+      <button className="btn logout" onClick={props.func}>Logout</button>
     );
-  }
 }
 export default Logout;
