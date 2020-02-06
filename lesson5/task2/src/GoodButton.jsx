@@ -4,7 +4,7 @@ class GoodButton extends React.Component{
   handleClick(){
     // console.log(e.screenX);
     // console.log(e);
-    alert('Good job!');
+    alert(document.querySelector('.fancy-button').textContent);
   }
   render(){
     return (
