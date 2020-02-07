@@ -4,43 +4,36 @@ import Logout from './Logout';
 import Spinner from './Spinner';
 
 class Auth extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isOnline: true,
-      markForSpinner: 1
-    };
-  }
+  state = {
+    onlineSatus: true,
+    markForSpinner: false
+  };
   handleLogin = () => {
-    this.setState({
-      isOnline: true
-    });
-
+    this.changeMarkForSpinner();
+    this.setState({ onlineSatus: true });
   };
   handleLogout = () => {
-    this.setState({
-      isOnline: false
-    });
+    this.changeMarkForSpinner();
+    this.setState({ onlineSatus: false });
   };
   changeMarkForSpinner = () => {
+    setTimeout(() => {
+      this.setState({
+        markForSpinner: false
+      });
+    }, 2000);
     this.setState({
-      markForSpinner: 1
+      markForSpinner: true
     });
   };
   render() {
-    if (this.state.markForSpinner === 0) {
-      setTimeout(() => {
-        this.changeMarkForSpinner();
-      }, 2000);
-      return <Spinner size={40} />
+    if (this.state.markForSpinner) {
+      return <Spinner size={40} />;
     }
-    if (this.state.isOnline) {
-      this.state.markForSpinner = 0;
-      return <Login onLogin={this.handleLogout} />;
-    } else {
-      this.state.markForSpinner = 0;
-      return <Logout onLogout={this.handleLogin} />;
-    }
-  }
-}
+    return this.state.onlineSatus
+      ? <Login onLogin={this.handleLogout} />
+      : <Logout onLogout={this.handleLogin} />
+  };
+};
+
 export default Auth;
