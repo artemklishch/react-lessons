@@ -23,11 +23,10 @@ class ConnectionStatus extends Component {
     });
   };
   render() {
-    const connect = this.state.isOnline === true
-      ? 'Online'
-      : 'Offline';
     return (
-      <div className="status status_offline">{connect}</div>
+      this.state.isOnline === true 
+        ? <div className="status">Online</div>
+        : <div className="status status_offline">Offline</div>
     );
   }
 
