@@ -22,6 +22,7 @@ class Demo extends Component{
   };
 
   render(){
+    console.log('return React element to build DOM');
     return (
       <div>
         <div>
