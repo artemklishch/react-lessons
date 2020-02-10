@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import User from './User';
+import Pagination from './Pagination';
+import Filter from './Filter';
 
 class UserList extends Component {
   constructor(props) {
@@ -16,19 +17,14 @@ class UserList extends Component {
     this.setState({
       certainUsers: newArr
     });
+    return text;
   };
   render() {
     return (
       <div>
-        <div className="filter">
-        <span className="filter__count">{this.state.certainUsers.length}</span>
-          <input type="text" className="filter__input" onChange={this.onChange} />
-        </div>
+        <Pagination onChange={this.onChange} count={this.state.certainUsers.length} />
         <ul className="users">
-          {
-            this.state.certainUsers
-              .map(user => <User key={user.id} {...user} />)
-          }
+          <Filter certainUsers={this.state.certainUsers} />
         </ul>
       </div>
     );
