@@ -20,7 +20,7 @@ class UserForm extends Component{
 
   onSubmit = event => {
     event.preventDefault();
-    //console.log(this.state);
+    console.log(this.state);
   };
 
   render(){
@@ -38,10 +38,10 @@ class UserForm extends Component{
         <div className="form-control">
           <label className="form-label" id="occupation" htmlFor="occupation">Occupation</label>
           <select name="occupation" className="form-input" onChange={this.handledChange} value={this.state.value}>
-            <option value="london">London</option>
-            <option value="new-york">New York</option>
-            <option value="coconut">Sidney</option>
-            <option value="mango">Berlin</option>
+            <option value={this.state.occupation}>London</option>
+            <option value={this.state.occupation}>New York</option>
+            <option value={this.state.occupation}>Sidney</option>
+            <option value={this.state.occupation}>Berlin</option>
           </select>
         </div>
         <div className="form-control">
