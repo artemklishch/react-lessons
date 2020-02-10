@@ -40,7 +40,7 @@ class UsersList extends Component {
         prevArrow:'←'
       });
     }
-    if ((this.props.users.length - this.state.startUser) < 5) {
+    if ((this.props.users.length - this.state.startUser) < 5 || (this.props.users.length - this.state.startUser) === 6) {
       this.setState({
         disabled2:true,
         nextArrow:''
