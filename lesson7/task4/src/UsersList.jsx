@@ -11,9 +11,11 @@ class UsersList extends Component {
       disabled1: true,
       disabled2: false,
       prevArrow:'',
-      nextArrow:'→'
+      nextArrow:'→',
+
     };
   }
+
   goPrev = () => {
     if (this.state.startUser !== 0) {
       this.setState({
@@ -23,7 +25,7 @@ class UsersList extends Component {
         nextArrow:'→'
       });
     }
-    if (this.state.startUser === 0) {
+    if (this.state.pageNum === 1) {
       this.setState({
         disabled1: true,
         prevArrow:''
@@ -39,7 +41,7 @@ class UsersList extends Component {
         prevArrow:'←'
       });
     }
-    if (this.state.startUser === this.props.users.length - 1) {
+    if ((this.props.users.length - this.state.startUser) < 5) {
       this.setState({
         disabled2:true,
         nextArrow:''
