@@ -11,7 +11,7 @@ class Life extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    console.log('shouldComponentUpdate(nextProps, nextState):decide to render or not to render');
+    console.log('shoudlComponentUpdate(nextProps, nextState): decide to render or not to render');
     return nextProps;
   }
 
@@ -20,10 +20,11 @@ class Life extends Component {
   }
 
   componentWillUnmount() {
-    console.log('componentWillUnmount(): clean up before DOM related to component will be removed');
+    console.log('componentWillUnmount(): cleanup before DOM related to component will be removed');
   }
 
   render() {
+    console.lof('return React element to build DOM');
     return <div className="number">{this.props.number}</div>;
   }
 };
