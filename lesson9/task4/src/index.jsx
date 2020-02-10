@@ -28,4 +28,4 @@ const users = [
   }
 ];
 
-ReactDOM.render(<UserList users={} />, rootElement);
+ReactDOM.render(<UserList users={users} />, rootElement);
