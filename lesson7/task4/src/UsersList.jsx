@@ -12,7 +12,6 @@ class UsersList extends Component {
       disabled2: false,
       prevArrow:'',
       nextArrow:'→',
-
     };
   }
 
