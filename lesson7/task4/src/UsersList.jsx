@@ -9,9 +9,9 @@ class UsersList extends Component {
       pageNum: 0,
       startUser: 0,
       disabled1: true,
-      disabled2: props.users.length < 3 ? true : false,
+      disabled2: props.users.length <= 3 ? true : false,
       prevArrow:'',
-      nextArrow: props.users.length < 3 ? '' : '→',
+      nextArrow: props.users.length <= 3 ? '' : '→',
     };
   }
 

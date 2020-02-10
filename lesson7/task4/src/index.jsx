@@ -24,21 +24,21 @@ const users = [
       name:'Sam',
       id: 'id-3',
     },
-    {
-        age:40,
-        name:'Samuel',
-        id: 'id-4',
-    },
-    {
-        age:25,
-        name:'Dan',
-        id: 'id-5',
-      },
-      {
-        age:50,
-        name:'Daniel',
-        id: 'id-6',
-      },
+    // {
+    //     age:40,
+    //     name:'Samuel',
+    //     id: 'id-4',
+    // },
+    // {
+    //     age:25,
+    //     name:'Dan',
+    //     id: 'id-5',
+    //   },
+      // {
+      //   age:50,
+      //   name:'Daniel',
+      //   id: 'id-6',
+      // },
       // {
       //   age:35,
       //   name:'Forest',
