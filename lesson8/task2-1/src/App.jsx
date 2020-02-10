@@ -7,19 +7,19 @@ class App extends Component {
     this.state = {
       visible: true,
     };
-    this.toggle = this.toggle.bind(this);
+    //this.toggle = this.toggle.bind(this);
   }
 
-  toggle() {
-    this.setState({
-      visible: !this.state.visible
-    });
-  };
+  // toggle() {
+  //   this.setState({
+  //     visible: !this.state.visible
+  //   });
+  // };
 
   render() {
     return (
       <>
-        <button onClick={this.toggle}>Toggle</button>
+        {/* <button onClick={this.toggle}>Toggle</button> */}
         {
           this.state.visible &&
           <div className="forClocks">
