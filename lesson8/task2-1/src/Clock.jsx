@@ -8,7 +8,6 @@ class Clock extends Component{
     this.state = {
       time: this.localeTime(props.offset)
     };
-    
   }
 
   componentDidMount(){
