@@ -6,7 +6,7 @@ class UsersList extends Component{
   constructor(props){
     super(props);
     this.state = {
-      pageNum: 1,
+      pageNum: 0,
       startUser: 0,
     };
   }
