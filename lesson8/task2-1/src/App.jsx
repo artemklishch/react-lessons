@@ -21,11 +21,11 @@ class App extends Component {
   render() {
     return (
       this.state.visible &&
-      <div className="forClocks">
+      <>
         <Clock location="London" offset={-2} />
         <Clock location="Kyiv" offset={0} />
         <Clock location="New York" offset={-7} />
-      </div>
+      </>
 
       // <>
       //   {/* <button onClick={this.toggle}>Toggle</button> */}
