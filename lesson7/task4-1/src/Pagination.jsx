@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const Pagination = (props) => {
     let disabled1, disabled2, prevArrow, nextArrow, markForLength;
