@@ -5,7 +5,7 @@ const Pagination = (props) => {
     markForLength = props.totalItems % 3 === 0 
       ? props.totalItems / 3 
       : null;
-    if(props.currentPage === 0){
+    if(props.currentPage === 1){
       disabled1 = true;
       prevArrow = '';
     }else{
@@ -19,7 +19,7 @@ const Pagination = (props) => {
       disabled2 = false;
       nextArrow = '→';
     }
-    if(markForLength-1 === props.currentPage){
+    if(markForLength === props.currentPage){
       disabled2 = true;
       nextArrow = '';
     }
