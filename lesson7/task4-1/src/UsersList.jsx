@@ -7,30 +7,21 @@ class UsersList extends Component {
     super(props);
     this.state = {
       pageNum: 1,
-      startUser: 0,
     };
   }
-
   goPrev = () => {
-    if (this.state.startUser !== 0) {
       this.setState({
         pageNum: this.state.pageNum - 1,
-        startUser: this.state.startUser - 3,
       });
-    }
   };
   goNext = () => {
-    if (this.state.startUser < this.props.users.length - 1) {
       this.setState({
         pageNum: this.state.pageNum + 1,
-        startUser: this.state.startUser + 3,
       });
-    }
+      
   };
   render() {
-    const currentArray = (this.state.startUser + 3 > this.props.users.length)
-      ? this.props.users.slice(this.state.startUser)
-      : this.props.users.slice(this.state.startUser, this.state.startUser + 3);
+    this.currentArray = this.props.users.slice(this.state.pageNum*3-3, this.state.pageNum*3);
     return (
       <>
         <Pagination
@@ -38,10 +29,10 @@ class UsersList extends Component {
           goNext={this.goNext}
           currentPage={this.state.pageNum}
           totalItems={this.props.users.length}
-          itemsPerPage={currentArray.length}
+          itemsPerPage={this.currentArray.length}
         />
         <ul className="users">
-          {currentArray.map(user => <User key={user.id} {...user} />)}
+          {this.currentArray.map(user => <User key={user.id} {...user} />)}
         </ul>
       </>
     );
