@@ -47,7 +47,6 @@ const users = [
 ];
 
 function getSubarray(pos, array){
-  let subArray;
   if(pos > array.length){
     const numOfThreeSubArrs = Math.trunc(array.length/3); 
     const restNumber = array.length - (numOfThreeSubArrs * 3);
@@ -55,12 +54,11 @@ function getSubarray(pos, array){
   }
   const arr = array.slice(0, pos);
   if(arr.length < array.length){
-    subArray = arr.slice(-3);
+    return arr.slice(-3);
   }else{
     const difference = Math.abs(array.length - arr.length);
-    subArray = arr.slice(-difference);
+    return arr.slice(-difference);
   }
-  return subArray;
 }
 
 it ('should find last page', () => {
