@@ -1,11 +1,10 @@
 import React from 'react';
 
 
-
 const Pagination = props => {
   let disabled1, disabled2, prevArrow, nextArrow;
-  let mark = props.currentPage * 3;
-  if (props.itemsPerPage < 3 || mark >= props.totalItems) {
+  const mark = props.currentPage * 3;
+  if (props.itemsPerPage < 3 || mark === props.totalItems) {
     disabled2 = true;
     nextArrow = '';
   } else {

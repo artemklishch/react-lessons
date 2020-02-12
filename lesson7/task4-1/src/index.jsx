@@ -44,11 +44,11 @@ const users = [
         name:'Forest',
         id: 'id-7',
       },
-    //   {
-    //     age:30,
-    //     name:'Shon',
-    //     id: 'id-8',
-    //   },
+      {
+        age:30,
+        name:'Shon',
+        id: 'id-8',
+      },
   ];
 
 const rootElement = document.querySelector('#root');

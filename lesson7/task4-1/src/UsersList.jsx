@@ -21,7 +21,7 @@ class UsersList extends Component {
       
   };
   render() {
-    this.currentArray = this.props.users.slice(this.state.pageNum*3-3, this.state.pageNum*3);
+    const currentArray = this.props.users.slice(this.state.pageNum*3-3, this.state.pageNum*3);
     return (
       <>
         <Pagination
@@ -29,10 +29,10 @@ class UsersList extends Component {
           goNext={this.goNext}
           currentPage={this.state.pageNum}
           totalItems={this.props.users.length}
-          itemsPerPage={this.currentArray.length}
+          itemsPerPage={currentArray.length}
         />
         <ul className="users">
-          {this.currentArray.map(user => <User key={user.id} {...user} />)}
+          {currentArray.map(user => <User key={user.id} {...user} />)}
         </ul>
       </>
     );
