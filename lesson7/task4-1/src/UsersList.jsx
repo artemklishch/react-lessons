@@ -7,26 +7,37 @@ class UsersList extends Component {
     super(props);
     this.state = {
       pageNum: 1,
-      elemsPerPage: 3
     };
   }
-  currentArray = this.props.users.slice(0, 3);
   goPrev = () => {
     this.setState({
       pageNum: this.state.pageNum - 1,
     });
-    const tempVal = this.state.pageNum * 3 - 3;
-    this.currentArray = this.props.users.slice(0, tempVal).slice(-3);
   };
   goNext = () => {
     this.setState({
       pageNum: this.state.pageNum + 1,
-    }); 
-    const tempVal = this.state.pageNum * 3 + 3;
-    this.currentArray = this.props.users.slice(0, tempVal).slice(-3);
+    });
   };
 
+  getSubarray = (pos, array) => {
+    if (pos > array.length) {
+      const numOfThreeSubArrs = Math.trunc(array.length / 3);
+      const restNumber = array.length - numOfThreeSubArrs*this.state.pageNum;
+      const arr = array.slice(0, pos).slice(-restNumber); 
+      return arr;
+    }
+    const arr = array.slice(0, pos);
+    if (arr.length <= array.length) {
+      return arr.slice(-3);
+    } else{
+      const difference = arr.length - array.length;
+     return arr.slice(-difference);
+    }
+  }
+
   render() {
+    const currentArray = this.getSubarray(this.state.pageNum * 3, this.props.users);
     return (
       <>
         <Pagination
@@ -34,10 +45,10 @@ class UsersList extends Component {
           goNext={this.goNext}
           currentPage={this.state.pageNum}
           totalItems={this.props.users.length}
-          itemsPerPage={this.currentArray.length}
+          itemsPerPage={currentArray.length}
         />
         <ul className="users">
-          {this.currentArray.map(user => <User key={user.id} {...user} />)}
+          {currentArray.map(user => <User key={user.id} {...user} />)}
         </ul>
       </>
     );
