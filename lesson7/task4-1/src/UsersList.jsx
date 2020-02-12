@@ -7,16 +7,17 @@ class UsersList extends Component {
     super(props);
     this.state = {
       pageNum: 1,
+      elemsPerPage: 3
     };
   }
   currentArray = this.props.users.slice(0, 3);
-  // goPrev = () => {
-  //   this.setState({
-  //     pageNum: this.state.pageNum - 1,
-  //   });
-  //   const tempVal = this.state.pageNum * 3 - 3;
-  //   this.currentArray = this.props.users.slice(0, tempVal).slice(-3);
-  // };
+  goPrev = () => {
+    this.setState({
+      pageNum: this.state.pageNum - 1,
+    });
+    const tempVal = this.state.pageNum * 3 - 3;
+    this.currentArray = this.props.users.slice(0, tempVal).slice(-3);
+  };
   goNext = () => {
     this.setState({
       pageNum: this.state.pageNum + 1,
