@@ -7,37 +7,30 @@ class UsersList extends Component {
     super(props);
     this.state = {
       pageNum: 1,
+      startUser: 0,
     };
   }
+
   goPrev = () => {
-    this.setState({
-      pageNum: this.state.pageNum - 1,
-    });
+    if (this.state.startUser !== 0) {
+      this.setState({
+        pageNum: this.state.pageNum - 1,
+        startUser: this.state.startUser - 3,
+      });
+    }
   };
   goNext = () => {
-    this.setState({
-      pageNum: this.state.pageNum + 1,
-    });
+    if (this.state.startUser < this.props.users.length - 1) {
+      this.setState({
+        pageNum: this.state.pageNum + 1,
+        startUser: this.state.startUser + 3,
+      });
+    }
   };
-
-  getSubarray = (pos, array) => {
-    if (pos > array.length) {
-      const numOfThreeSubArrs = Math.trunc(array.length / 3);
-      const restNumber = array.length - numOfThreeSubArrs*this.state.pageNum;
-      const arr = array.slice(0, pos).slice(-restNumber); 
-      return arr;
-    }
-    const arr = array.slice(0, pos);
-    if (arr.length <= array.length) {
-      return arr.slice(-3);
-    } else{
-      const difference = arr.length - array.length;
-     return arr.slice(-difference);
-    }
-  }
-
   render() {
-    const currentArray = this.getSubarray(this.state.pageNum * 3, this.props.users);
+    const currentArray = (this.state.startUser + 3 > this.props.users.length)
+      ? this.props.users.slice(this.state.startUser)
+      : this.props.users.slice(this.state.startUser, this.state.startUser + 3);
     return (
       <>
         <Pagination
