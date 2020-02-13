@@ -48,7 +48,7 @@ class UserForm extends Component{
           <label className="form-label" id="about" htmlFor="about">About</label>
           <textarea name="about" className="form-input" onChange={this.handledChange} value={this.state.value} />
         </div>
-        <button className="submit-button" type="submit">Submit</button>
+        <button className="submit-button" type="submit" onSubmit={this.onSubmit}>Submit</button>
       </form>
     );
   }
