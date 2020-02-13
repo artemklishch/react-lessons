@@ -2,23 +2,11 @@ import React from 'react';
 
 
 const Pagination = props => {
-  let disabled1, disabled2, prevArrow, nextArrow;
-  const mark = props.currentPage * 3;
-  if (props.itemsPerPage < 3 || mark === props.totalItems) {
-    disabled2 = true;
-    nextArrow = '';
-  } else {
-    disabled2 = false;
-    nextArrow = '→';
-  }
-  if (props.currentPage === 1) {
-    disabled1 = true;
-    prevArrow = '';
-  } else {
-    disabled1 = false;
-    prevArrow = '←';
-  }
-
+  const disabled2 = props.itemsPerPage < 3 || props.currentPage * 3 === props.totalItems
+    ? true : false;
+  
+  const disabled1= props.currentPage === 1
+    ? true : false;
 
   return (
     <div className="pagination" >
@@ -27,7 +15,7 @@ const Pagination = props => {
         onClick={props.goPrev}
         disabled={disabled1}
       >
-        {prevArrow}
+        {disabled1 ? '' : '→'}
       </button>
 
       <span className="pagination__page">{props.currentPage}</span>
@@ -37,7 +25,7 @@ const Pagination = props => {
         onClick={props.goNext}
         disabled={disabled2}
       >
-        {nextArrow}
+        {disabled2 ? '' : '→'}
       </button>
     </div>
   );
