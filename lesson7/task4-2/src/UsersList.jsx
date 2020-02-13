@@ -3,39 +3,41 @@ import User from './User';
 import Pagination from './Pagination';
 
 class UsersList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      pageNum: 0,
-    };
-  }
-  goPrev = () => {
-      this.setState({
-        pageNum: this.state.pageNum - 1,
-      });
+  state = {
+      currentPage: 0,
+      itemsPerPage: 3,
   };
   goNext = () => {
       this.setState({
-        pageNum: this.state.pageNum + 1,
+          currentPage: this.state.currentPage + 1,
       });
-      
+  };
+  goPrev = () => {
+      this.setState({
+          currentPage: this.state.currentPage - 1,
+      });
   };
   render() {
-    const currentArray = this.props.users.slice((this.state.pageNum+1)*3-3, (this.state.pageNum+1)*3);
-    return (
-      <>
-        <Pagination
-          goPrev={this.goPrev}
-          goNext={this.goNext}
-          currentPage={this.state.pageNum+1}
-          totalItems={this.props.users.length}
-          itemsPerPage={currentArray.length}
-        />
-        <ul className="users">
-          {currentArray.map(user => <User key={user.id} {...user} />)}
-        </ul>
-      </>
-    );
+      const { users } = this.props;
+      const { currentPage, itemsPerPage } = this.state;
+      const start = currentPage * itemsPerPage;
+      const usersToDisplay = users.slice(start, start + itemsPerPage);
+      return (
+          <div>
+              <Pagination
+                  goNext={this.goNext}
+                  goPrev={this.goPrev}
+                  currentPage={currentPage}
+                  totalItems={users.length}
+                  itemsPerPage={itemsPerPage}
+              />
+              <ul className="users">
+                  {usersToDisplay.map(user => (
+                      <User key={user.id} {...user} />
+                  ))}
+              </ul>
+          </div>
+      );
   }
-};
+}
 export default UsersList;
