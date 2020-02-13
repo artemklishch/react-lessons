@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import UsersList from './UserList';
+import UsersList from './UsersList';
 
 const rootElement = document.querySelector('#root');
 
