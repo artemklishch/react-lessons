@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 
 class ConnectionStatus extends Component {
   state = {
-    isOnline: true
+    textIsOnline: 'Online',
+    classStyle: this.textIsOnline === 'Offline' 
+      ? 'status' : 'status status_offline'
   };
   componentDidMount(){
     window.addEventListener('online', this.handleOnlineHeader);
@@ -14,20 +16,16 @@ class ConnectionStatus extends Component {
   }
   handleOnlineHeader = () => {
     this.setState({
-      isOnline: true
+      textIsOnline: 'Online',
     });
   };
   handleOfflineHeader = () => {
     this.setState({
-      isOnline: false
+      textIsOnline: 'Offline',
     });
   };
   render() {
-    return (
-      this.state.isOnline === true 
-        ? <div className="status">online</div>
-        : <div className="status status_offline">offline</div>
-    );
+    return <div className={this.state.classStyle}>{this.state.textIsOnline}</div>;
   }
 
 };
