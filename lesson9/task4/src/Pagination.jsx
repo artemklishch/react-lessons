@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Filter = ({onChange,count}) => {
+const Pagination = () => {
   return (
     <div className="filter">
-      <span className="filter__count">{count}</span>
-      <input type="text" className="filter__input" onChange={onChange} />
+      <span className="filter__count"></span>
+      <input type="text" className="filter__input" />
     </div>
   );
 };
-export default Filter;
+export default Pagination;
