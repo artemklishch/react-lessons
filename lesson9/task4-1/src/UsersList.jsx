@@ -6,12 +6,18 @@ class UsersList extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      certainUsers: props.users
+      certainUsers: props.users,
+      filterText: ''
     };
   }
   onChange = event => {
     const text = event.target.value.toLowerCase();
-    if(!text){ this.setState({certainUsers: this.props.user});}
+    if(!text){
+       this.setState({
+         certainUsers: this.props.user,
+         filterText: text
+        });
+    }
     const newArr = this.props.users
       .filter(user => user.name.toLowerCase().includes(text));
     this.setState({
@@ -24,7 +30,8 @@ class UsersList extends Component {
       <>
         <Filter
           count={this.state.certainUsers.length}
-          onChange={this.onChange} 
+          onChange={this.onChange}
+          // filterText={} 
         />
         <ul className="users">
           {this.state.certainUsers

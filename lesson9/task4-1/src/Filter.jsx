@@ -2,11 +2,11 @@ import React from 'react';
 import User from './User';
 
 
-const Filter = ({ count, onChange }) => {
+const Filter = ({ filterText, count, onChange }) => {
   return (
     <div className="filter">
       <span className="filter__count">{count}</span>
-      <input type="text" className="filter__input" onChange={onChange} />
+      <input type="text" className="filter__input" onChange={onChange} value={filterText} />
     </div>
   );
 };
