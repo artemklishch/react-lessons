@@ -6,7 +6,7 @@ class UsersList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pageNum: 0,
+      pageNum: 1,
     };
   }
   goPrev = () => {
@@ -27,7 +27,7 @@ class UsersList extends Component {
         <Pagination
           goPrev={this.goPrev}
           goNext={this.goNext}
-          currentPage={this.state.pageNum+1}
+          currentPage={this.state.pageNum}
           totalItems={this.props.users.length}
           itemsPerPage={currentArray.length}
         />
