@@ -6,7 +6,7 @@ class UserForm extends Component {
     const formData = [...new FormData(this.formRef)]
     .reduce((acc, [name, value]) => ({...acc,[name]:value}), {});
     this.onRef(event.target);
-    // console.log(formData);
+    this.props.onSubmit(formData);
   };
   onRef = node => {
     this.formRef = node;
