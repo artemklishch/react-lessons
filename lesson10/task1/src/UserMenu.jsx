@@ -1,6 +1,7 @@
 import React from 'react';
 
-const UserMenu = ({ name, avatar_url }) => {
+const UserMenu = props => {
+  const { name, avatar_url } = props.userData;
   return (
     <div className="menu">
       <span className="menu__greeting">

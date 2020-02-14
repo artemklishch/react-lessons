@@ -1,6 +1,7 @@
 import React from 'react';
 
-const UserProfile = ({ name, location, avatar_url }) => {
+const UserProfile = props => {
+  const { name, location, avatar_url } = props.userData;
   return (
     <div className="user">
       <img

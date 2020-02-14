@@ -23,19 +23,15 @@ class App extends Component {
   };
   render() {
     if(!this.state.userData)return null;
-    const { name, location, avatar_url } = this.state.userData;
     return (
       <div className="page">
         <header className="header">
           <UserMenu
-            name={name}
-            avatar_url={avatar_url}
+            userData={this.state.userData}
           />
         </header>
         <UserProfile
-          name={name}
-          location={location}
-          avatar_url={avatar_url}
+          userData={this.state.userData}
         />
       </div>
     );
