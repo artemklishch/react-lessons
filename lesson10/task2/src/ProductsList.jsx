@@ -1,21 +1,9 @@
 import React, { Component } from 'react';
 
 class ProductsList extends Component{
-  state = {
-    total: null
-  };
-  componentDidMount(){
-    this.getAllSumOfGoods(this.props.cartItems);
-  }
-  getAllSumOfGoods = cartItems => {
-    const sum = cartItems.reduce((acc, good) => acc += good.price, 0);
-    this.setState({
-      total: sum
-    });
-  }
   render(){
-    if(!this.state.total) return null;
     const cartItems = this.props.cartItems;
+    const total = cartItems.reduce((acc, good) => acc += good.price, 0);
     return (
       <div className="products">
         <ul className="products__list">
@@ -29,7 +17,7 @@ class ProductsList extends Component{
             ))
         }
         </ul>
-        <div className="products__total">{`Total: $${this.state.total}`}</div>
+        <div className="products__total">{`Total: $${total}`}</div>
       </div>
     );
   }
