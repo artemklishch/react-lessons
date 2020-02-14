@@ -22,7 +22,7 @@ class ShoppingCart extends Component{
       <div className="column">
         <CartTitle
           count={this.state.products.length}
-          userName={this.props.userData.firstName}
+          userName={this.props.userName}
         />
         <ProductsList
           cartItems={this.state.products}
