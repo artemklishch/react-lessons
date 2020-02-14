@@ -19,16 +19,16 @@ const users = [
       name:'Tom',
       id: 'id-2',
     },
-    // {
-    //   age:45,
-    //   name:'Sam',
-    //   id: 'id-3',
-    // },
-    // {
-    //     age:40,
-    //     name:'Samuel',
-    //     id: 'id-4',
-    // },
+    {
+      age:45,
+      name:'Sam',
+      id: 'id-3',
+    },
+    {
+        age:40,
+        name:'Samuel',
+        id: 'id-4',
+    },
     // {
     //     age:25,
     //     name:'Dan',

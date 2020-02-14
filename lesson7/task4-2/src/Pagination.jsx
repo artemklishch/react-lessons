@@ -8,7 +8,7 @@ const Pagination = ({
 }) => {
     const prevPageAvailable = currentPage > 0;
     const nextPageAvailable =
-        currentPage < Math.floor(totalItems / itemsPerPage);
+        currentPage < Math.ceil(totalItems / itemsPerPage) - 1;
     return (
         <div className="pagination">
             <button
