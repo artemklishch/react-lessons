@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const ProductsList = ({cartItems}) => {
     const total = cartItems.reduce((acc, good) => acc += good.price, 0);

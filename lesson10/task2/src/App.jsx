@@ -23,7 +23,7 @@ class App extends Component {
     const userData = this.state.userData;
     return (
       <div className="page">
-        <h1 className="title">{`Hello, ${userData.firstName} ${userData.lastName}`}</h1>
+        <h1 className="title">{`Hello, ${userData.firstName}`}</h1>
         <main className="content">
           <ShoppingCart
             userData={userData}
