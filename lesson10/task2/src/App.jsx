@@ -26,7 +26,7 @@ class App extends Component {
         <h1 className="title">{`Hello, ${userData.firstName}`}</h1>
         <main className="content">
           <ShoppingCart
-            userData={userData}
+            userName={userData.firstName}
           />
           <Profile
             userData={userData}
