@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 
 class Expand extends PureComponent {
   state = {
-    isShown: true
+    isShown: false
   };
 
   onToggle = () => {
