@@ -25,13 +25,11 @@ class Expand extends PureComponent {
             </button>
           </div>
           <div className="expand__content">
-            <p>
               {
               this.state.isShown
-                ? this.props.content
+                ? this.props.children
                 : ''
               }
-            </p>
           </div>
         </div>
       </div>
