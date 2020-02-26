@@ -14,10 +14,10 @@ const Users = () => {
           <Link to="/users/facebook">Facebook</Link>
         </li>
       </ul>
-      <Route path="/users">
+      <Route exact path="/users">
         <span>Select a user please</span>
       </Route>
-      <Route path="/users/:userId"> <User /> </Route>
+      <Route path="/users/:userId" component={User } />
     </div>
   );
 };
