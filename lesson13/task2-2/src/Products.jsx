@@ -18,7 +18,9 @@ const Products = ({match}) => {
         <Route exact path={match.path}>
           <span>Select a product please</span>
         </Route>
-        <Route path={`${match.path}/:productId`} component={Product} />
+        <Route path={`${match.path}/:productId`}>
+          <Product />
+        </Route>
       </Switch>
     </div>
 
