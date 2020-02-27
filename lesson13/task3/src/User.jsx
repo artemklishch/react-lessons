@@ -12,8 +12,14 @@ class User extends Component {
     this.fetchUserData(this.props.match.params.userId);
   }
 
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (this.state.user.login !== this.props.match.params.userId) {
+  //     this.fetchUserData(this.props.match.params.userId);
+  //   }
+  // }
+
   componentDidUpdate(prevProps, prevState) {
-    if (this.state.user.login !== this.props.match.params.userId) {
+    if (this.props.match.params.userId !== this.props.match.params.userId) {
       this.fetchUserData(this.props.match.params.userId);
     }
   }
