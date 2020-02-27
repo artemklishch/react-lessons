@@ -12,17 +12,17 @@ class User extends Component {
     this.fetchUserData(this.props.match.params.userId);
   }
 
-  // shouldComponentUpdate(){
-  //   return this.props.match.params.userId !== this.state.user.login;
-  // }
-
-  componentDidUpdate(prevProps, prevState){
-    // console.log(prevState.user.login);
-    //console.log(prevProps.match.params.userId);
-    if(this.props.match.params.userId !== this.state.user.login){
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.user.login === this.state.user.login) {
       this.fetchUserData(this.props.match.params.userId);
     }
   }
+
+  // componentWillUnmount(){
+  //   this.setState({
+  //     user: ''
+  //   });
+  // }
 
   fetchUserData = userId => {
     fetch(`https://api.github.com/users/${userId}`)
