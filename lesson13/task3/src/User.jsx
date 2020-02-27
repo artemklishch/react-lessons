@@ -13,7 +13,7 @@ class User extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.props.match.params.userId !== this.state.user.login) {
+    if (this.state.user.login !== this.props.match.params.userId) {
       this.fetchUserData(this.props.match.params.userId);
     }
   }
