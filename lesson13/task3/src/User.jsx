@@ -13,16 +13,16 @@ class User extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.user.login === this.state.user.login) {
+    if (this.props.match.params.userId !== this.state.user.login) {
       this.fetchUserData(this.props.match.params.userId);
     }
   }
 
-  // componentWillUnmount(){
-  //   this.setState({
-  //     user: ''
-  //   });
-  // }
+  componentWillUnmount(){
+    this.setState({
+      user: ''
+    });
+  }
 
   fetchUserData = userId => {
     fetch(`https://api.github.com/users/${userId}`)
