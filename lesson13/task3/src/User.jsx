@@ -1,27 +1,41 @@
 import React, { Component } from 'react';
 
 class User extends Component {
-  state = {
-    avatar_url: '',
-    name: '',
-    location: ''
+  constructor(props){
+    super(props);
+    this.state = {
+      user: ''
+    }
   }
-  render() {
-    fetch(`https://api.github.com/users/${this.props.match.params.userId}`)
+  
+  componentDidMount(){
+    this.fetchUserData(this.props.match.params.userId);
+  }
+
+  // shouldComponentUpdate(){
+  //   return this.props.match.params.userId !== this.state.user.login;
+  // }
+
+  componentDidUpdate(){
+    this.fetchUserData(this.props.match.params.userId);
+  }
+
+  fetchUserData = userId => {
+    fetch(`https://api.github.com/users/${userId}`)
       .then(response => response.json())
       .then(userData =>
-        this.setState({
-          avatar_url: userData.avatar_url,
-          name: userData.name,
-          location: userData.location,
-        })
+        this.setState({ user: userData })
       );
+  };
+
+  render() {
+    const { avatar_url, name, location } = this.state.user;
     return (
       <div className="user">
-        <img alt="User Avatar" src={this.state.avatar_url} className="user__avatar" />
+        <img alt="User Avatar" src={avatar_url} className="user__avatar" />
         <div className="user__info">
-          <span className="user__name">{this.state.name}</span>
-          <span className="user__location">{this.state.location}</span>
+          <span className="user__name">{name}</span>
+          <span className="user__location">{location}</span>
         </div>
       </div>
     );
