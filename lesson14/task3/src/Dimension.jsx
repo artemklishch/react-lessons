@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const Dimensions = () => {
+const Dimension = () => {
   const { innerWidth, innerHeight } = window;
   const [windowSizes, setWindowSizez] = useState({
     innerWidth,
@@ -19,4 +19,4 @@ const Dimensions = () => {
   }, [windowSizes]);
   return <div className="dimensions">{`${innerWidth} - ${innerHeight}`}</div>;
 };
-export default Dimensions;
+export default Dimension;
