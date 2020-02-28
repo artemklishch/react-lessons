@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import classNames from 'classnames';
 
 const ConnectionStatus = () => {
   const [isOnline, setOnlineStatus] = useState(true);
@@ -13,7 +12,7 @@ const ConnectionStatus = () => {
       window.removeEventListener('offline', handleOfflineClass);
     };
   }, [isOnline]);
-  const classIsOnline = classNames('status', { 'status_offline': !isOnline });
+  const classIsOnline = isOnline ? 'status' : 'status status_offline'
   return <div className={classIsOnline}>
     {
       isOnline ? "online" : "offline"
