@@ -18,6 +18,6 @@ const ConnectionStatus = () => {
     {
       isOnline ? "online" : "offline"
     }
-  </div>;
+  </div>; 
 };
 export default ConnectionStatus;
