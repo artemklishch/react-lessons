@@ -8,7 +8,7 @@ const Dimensions = () => {
   useEffect(() => {
     const handleSizes = () => {
       const { innerWidth, innerHeight } = window;
-      setWindowSizes({ innerWidth, innerHeight });
+      setWindowSizes({ width:innerWidth, height:innerHeight });
     };
     window.addEventListener('resize', handleSizes);
 
@@ -16,6 +16,6 @@ const Dimensions = () => {
       window.removeEventListener('resize', handleSizes);
     };
   }, [windowSizes]);
-  return <div className="dimensions">{`${innerWidth} - ${innerHeight}`}</div>;
+  return <div className="dimensions">{`${innerWidth}px - ${innerHeight}px`}</div>;
 };
 export default Dimensions;
