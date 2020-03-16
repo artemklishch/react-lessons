@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Message /> should render component with text 1`] = `
+<div
+  className="message"
+>
+  Hello world!
+</div>
+`;
+
+exports[`<Message /> should render text 1`] = `
+<div
+  className="message"
+>
+  Hello world!
+</div>
+`;
+
+exports[`<Message /> should render text 2`] = `""`;
+
+exports[`<Message /> shouldn\`t render component with text 1`] = `""`;
