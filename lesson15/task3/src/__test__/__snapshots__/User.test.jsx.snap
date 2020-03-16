@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<User /> should render name and age 1`] = `
+<li
+  className="user"
+>
+  <span
+    className="user__name"
+  >
+    Tom
+  </span>
+  <span
+    className="user__age"
+  >
+    23
+  </span>
+</li>
+`;
