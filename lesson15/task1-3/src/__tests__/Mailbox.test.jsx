@@ -10,4 +10,12 @@ describe('<Mailbox />', () => {
     const wrappedComponent = shallow(<Mailbox {...props} />);
     expect(wrappedComponent).toMatchSnapshot();
   })
+
+  it ('should get number of unread messages', () => {
+    const props = {
+      unreadMessages: [],
+    }
+    const wrappedComponent = shallow(<Mailbox {...props} />);
+    expect(wrappedComponent).toMatchSnapshot();
+  })
 });

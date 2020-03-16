@@ -16,3 +16,15 @@ exports[`<Mailbox /> should get number of unread messages 1`] = `
   </span>
 </div>
 `;
+
+exports[`<Mailbox /> should get number of unread messages 2`] = `
+<div
+  className="mailbox"
+>
+  <span
+    className="mailbox__text"
+  >
+    Messages
+  </span>
+</div>
+`;
