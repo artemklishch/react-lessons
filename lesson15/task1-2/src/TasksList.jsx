@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import Task from './Task';
 import CreateTaskInput from './CreateTaskInput';
-import { fetchTasksList, createTask, onChangeTask, onDeleteTask } from './tasksGateway';
+import { 
+  fetchTasksList,
+  createTask, 
+  onChangeTask, 
+  onDeleteTask } from './tasksGateway';
 
 
 class TasksList extends Component {
