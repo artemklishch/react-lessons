@@ -21,11 +21,10 @@ export default Task;
 
 Task.propTypes = {
   text: PropTypes.string,
-  done: PropTypes.bool.isRequired,
+  done: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
   handleTaskDelete: PropTypes.func.isRequired,
 };
 Task.defaultProps = {
   text: '',
-  done: false,
 };
