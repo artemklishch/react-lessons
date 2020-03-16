@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Mailbox /> should get number of unread messages 1`] = `
+<div
+  className="mailbox"
+>
+  <span
+    className="mailbox__text"
+  >
+    Messages
+  </span>
+  <span
+    className="mailbox__count"
+  >
+    10
+  </span>
+</div>
+`;
