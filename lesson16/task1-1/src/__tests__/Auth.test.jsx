@@ -7,4 +7,10 @@ describe('Auth', () => {
     const wrappedComponent = shallow(<Auth />);
     expect(wrappedComponent.find('Login').exists()).toBeTruthy();
   })
+
+  it ('should display Logout btn id user logged in', () => {
+    const wrappedComponent = shallow(<Auth />);
+    wrappedComponent.find('Login').prop('isLogin')();
+    expect(wrappedComponent.find('Logout').exists()).toBeTruthy();
+  })
 });
