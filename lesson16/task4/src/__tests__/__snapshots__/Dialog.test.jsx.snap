@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dialog should render Dialog with its elements 1`] = `
+<div
+  className="dialog"
+>
+  <div
+    className="dialog__heading"
+  >
+    <h4
+      className="dialog__title"
+    >
+      Title
+    </h4>
+    <button
+      className="dialog__close-btn"
+      onClick={[MockFunction]}
+    >
+      +
+    </button>
+  </div>
+  <div
+    className="dialog__content"
+  >
+    <p>
+      Some text
+    </p>
+  </div>
+</div>
+`;
