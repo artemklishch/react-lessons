@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserGreeting should display user greeting 1`] = `
+<h1>
+  Hi Stranger ✌️ Please login 🚀
+</h1>
+`;
