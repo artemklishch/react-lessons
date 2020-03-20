@@ -1,10 +1,12 @@
 import React from 'react';
 import App from '../App';
-import { shallow } from 'enzyme';
+// import { shallow } from 'jest-enzyme';
+import { render } from '@testing-library/react';
+
 
 describe('<App />', () => {
   it('should display Todo List', () => {
-    const wrappedComponent = shallow(<App />);
+    const wrappedComponent = render(<App />);
     expect(wrappedComponent.find('TodoList').exists()).toBeTruthy()
   })
 });
