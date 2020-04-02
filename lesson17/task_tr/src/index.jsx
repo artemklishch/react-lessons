@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AuthExample from './Example' ;
+import App from './App' ;
 
-ReactDOM.render(<AuthExample />, document.querySelector('#root'));
+ReactDOM.render(<App />, document.querySelector('#root'));
