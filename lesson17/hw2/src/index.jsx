@@ -1,8 +1,6 @@
-function run() {
-  var a = 0,
-      b = 1;
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.scss';
+import App from './App';
 
-  if (a == b) {
-      return c;
-  }
-}
+ReactDOM.render(<App />, document.querySelector('#root'));
