@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-class User extends Component {
+class User extends PureComponent {
     state = {
         userData: null,
     };
@@ -8,11 +8,7 @@ class User extends Component {
         const { userId } = this.props;
         this.fetchUser(userId);
     }
-    shouldComponentUpdate(nextProps, nextState) {
-        const { userId } = this.props;
-        // return nextProps.userId !== userId;
-        return nextState.name !== userId;
-    }
+    
     componentDidUpdate(prevProps) {
         console.log('==> User update');
         const { userId } = this.props;
