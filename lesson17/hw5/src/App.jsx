@@ -1,10 +1,11 @@
 import React from 'react';
+import CounterOne from './CounterOne';
 
 const App = () => {
-    return (
-      <div>
-        Hello world!
-      </div>
-    );
+  return (
+    <div>
+      <CounterOne />
+    </div>
+  );
 };
 export default App;
