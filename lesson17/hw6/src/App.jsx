@@ -1,9 +1,10 @@
 import React from 'react';
+import MouseContainer from './MouseContainer';
 
 const App = () => {
     return (
       <div>
-        Hello world!
+        <MouseContainer />
       </div>
     );
 };
