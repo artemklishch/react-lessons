@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import User from './User'
 import { Route, Link } from 'react-router-dom'
 
@@ -20,17 +20,17 @@ const Users = () => {
       <h1>Users</h1>
       <ul className="navigation">
         <li className="navigation__item">
-          <Link to="/users/github">Github</Link>
+          <Link onClick={() => onGetUserData('github')} to="/users/github">Github</Link>
         </li>
         <li className="navigation__item">
-          <Link to="/users/facebook">Facebook</Link>
+          <Link onClick={() => onGetUserData('facebook')} to="/users/facebook">Facebook</Link>
         </li>
       </ul>
       <Route exact path="/users">
         <span>Select a user please</span>
       </Route>
       <Route path="/users/:userId">
-        <User onGetUserData={onGetUserData} userData={userData} />
+        <User userData={userData} />
       </Route>
     </div>
   )

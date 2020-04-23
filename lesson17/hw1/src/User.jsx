@@ -1,11 +1,8 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 
-const User = ({onGetUserData, userData}) => {
+const User = ({userData}) => {
   const { userName } = useParams();
-  useEffect(() => {
-    onGetUserData(userName);
-  }, [userName]);
   return (
     <div className="user">
       <img alt="User Avatar" src={userData.avatar_url} className="user__avatar" />
