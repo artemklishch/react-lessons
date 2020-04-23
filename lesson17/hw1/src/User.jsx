@@ -1,19 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 
-const User = () => {
+const User = ({onGetUserData, userData}) => {
   const { userName } = useParams();
-  const [userData, setUserData] = useState({});
   useEffect(() => {
-    fetch(`https://api.github.com/users/${userName}`)
-      .then(response => {
-        if (!response.ok) throw new Error('Failed to load data')
-        return response.json();
-      })
-      .then(user => {
-        const { name, avatar_url, location } = user;
-        setUserData({ name, avatar_url, location, });
-      })
+    onGetUserData(userName);
   }, [userName]);
   return (
     <div className="user">
