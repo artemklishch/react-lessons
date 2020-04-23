@@ -1,12 +1,10 @@
 import React, { useReducer } from 'react';
-import ComponentA from './ComponentA'
-import ComponentB from './ComponentB'
-import ComponentC from './ComponentC'
+import DataFetchingOne from './DataFetchingOne';
 
 const App = () => {
   return (
     <div>
-      Hello world
+      <DataFetchingOne />
     </div>
   );
 };
