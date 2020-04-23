@@ -1,10 +1,12 @@
 import React, { useReducer } from 'react';
 import DataFetchingOne from './DataFetchingOne';
+import DataFetchingTwo from './DataFetchingTwo';
 
 const App = () => {
   return (
     <div>
-      <DataFetchingOne />
+      {/* <DataFetchingOne /> */}
+      <DataFetchingTwo />
     </div>
   );
 };
