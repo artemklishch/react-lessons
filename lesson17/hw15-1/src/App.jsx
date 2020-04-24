@@ -1,9 +1,12 @@
 import React from 'react';
+import DocTitleOne from './DocTitleOne';
+import DocTitleTwo from './DocTitleTwo';
 
 const App = () => {
   return (
     <div>
-      Hello
+      <DocTitleOne />
+      <DocTitleTwo />
     </div>
   );
 };
