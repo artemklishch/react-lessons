@@ -10,10 +10,7 @@ const User = () => {
         if (!response.ok) throw new Error('Failed to load data')
         return response.json();
       })
-      .then(user => {
-        const { name, avatar_url, location } = user;
-        setUserData({ name, avatar_url, location, });
-      })
+      .then(data => setUserData(data))
   }, [userName]);
   if (!userData) return null;
   const { avatar_url, name, location } = userData;
