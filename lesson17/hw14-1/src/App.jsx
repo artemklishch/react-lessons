@@ -1,9 +1,10 @@
 import React from 'react';
+import FocusInput from './FocusInput';
 
 const App = () => {
   return (
     <div>
-     Hello world
+      <FocusInput />
     </div>
   );
 };
