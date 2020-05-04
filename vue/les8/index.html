@@ -9,11 +9,9 @@
 
 <body>
   <div id="my-app">
-    <ul>
-      <li v-for='product in products'>
-        {{product}}
-      </li>
-    </ul>
+    <p>{{products.location}}</p>
+    <h1>Total Inventory: {{totalInventory}}</h1>
+    <button @click='products.name+=1'>Add {{products.id}}</button>
   </div>
 
   <script src="https://unpkg.com/vue"></script>
@@ -23,12 +21,17 @@
       data: {
         products: []
       },
+      computed: {
+        totalInventory(){
+          return this.products.name
+        }
+      },
       created(){
-        fetch('https://api.myjson.com/bins/74l63')
+        fetch('https://api.github.com/users/facebook')
           .then(response => response.json())
           .then(json => {
-            this.products = json.products
-            console.log(json);
+            this.products = json
+            // console.log(json);
           })
       }
     });
