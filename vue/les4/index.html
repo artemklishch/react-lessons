@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="my-app">
+    <h1 v-bind:id='myId'>Codevolution</h1>
+    <button v-bind:disabled='isDisabled'>Bind</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script>
+    var vm = new Vue({
+      el: '#my-app',
+      data: {
+        myId: "dataId",
+        isDisabled: false,
+      },
+    });
+  </script>
+</body>
+
+</html>
