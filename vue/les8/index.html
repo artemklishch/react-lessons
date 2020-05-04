@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="my-app">
+    <ul>
+      <li v-for='product in products'>
+        {{product}}
+      </li>
+    </ul>
+  </div>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script>
+    var vm = new Vue({
+      el: '#my-app',
+      data: {
+        products: []
+      },
+      created(){
+        fetch('https://api.myjson.com/bins/74l63')
+          .then(response => response.json())
+          .then(json => {
+            this.products = json.products
+            console.log(json);
+          })
+      }
+    });
+  </script>
+</body>
+
+</html>
