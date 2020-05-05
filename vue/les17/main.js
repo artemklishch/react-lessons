@@ -16,6 +16,7 @@ Vue.component('product', {
       <p v-if="inStock">In Stock</p>
       <p v-else>Out of Stock</p>
       <p>Shipping is {{shipping}}</p>
+      <p>Premium is {{premium}}</p>
   
       <ul>
         <li v-for='detail in details'>{{detail}}</li>
@@ -36,10 +37,7 @@ Vue.component('product', {
       >
         Add to Cart
       </button>
-
-      <div class="cart">
-        <p>Cart ({{cart}})</p>
-      </div>
+      <button @click="removeFromCart">Remove from cart</button
 
       </div>
     </div>
@@ -49,7 +47,6 @@ Vue.component('product', {
       product: 'Socks',
       brand: 'Vue Mastery',
       selectedVariant: 0,
-      url: 'https://www.vuemastery.com/courses/intro-to-vue-js/attribute-binding/',
       details: ['80% cotton', '20% poliestr', 'Gender-natural'],
       variants: [
         {
@@ -65,12 +62,14 @@ Vue.component('product', {
           variantQuantity: 0,
         },
       ],
-      cart: 0,
     }
   },
   methods: {
     addToCart: function () {
-      this.cart += 1
+      this.$emit('add-to-cart', this.variants[this.selectedVariant].variantId)
+    },
+    removeFromCart: function () {
+      this.$emit('remove-from-cart', this.variants[this.selectedVariant].variantId)
     },
     updateProduct(index) {
       this.selectedVariant = index
@@ -96,27 +95,24 @@ Vue.component('product', {
   }
 })
 
-Vue.component('products', {
-  template:
-  `
-    <div class='details'>
-      <ul>
-        <li v-for="detail in details">{{detail}}</li>
-      </ul>
-    </div>
-  `,
-  data(){
-    return {
-      details: ['socks', 'boots', 'coats', 'food', 'hats'],
-    }
-  }
-})
-
-
 const app = new Vue({
   el: '#app',
   data: {
     premium: true,
+    cart: [],
+  },
+  methods:{
+    updateCart(id){
+      this.cart.push(id)
+    },
+    removeCart(id){
+      let num = 0;
+      const number = this.cart.find((ident,index) => {
+        ident === id
+        num = index
+      })
+      this.cart.splice(number, 1)
+    }
   }
 });
 
