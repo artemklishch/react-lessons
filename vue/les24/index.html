@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
+    integrity="sha256-WAgYcAck1C1/zEl5sBl5cfyhxtLgKGdpI3oKyJffVRI=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="./style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- {{'фильтры' | uppercase}}
+    {{500 | currency '*' 0}} -->
+    <!-- <input type="text" v-model="input" autofocus> -->
+    <!-- <ul>
+      <li v-for="item in array | orderBy 'name' 'age' -1">{{item.name}}, {{item.age}}</li>
+      <li v-for="item in array | filterBy input">{{item.name}}, {{item.age}}</li>
+    </ul> -->
+
+    <!-- <textarea v-model="input"></textarea>
+    <div id="result">{{{input | marked}}}</div> -->
+
+    <textarea v-model="input"></textarea>
+    <div id="result">{{{input | emoji }}}</div>
+  </div>
+
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/1.0.0/marked.min.js"></script>
+  <script>
+    // Vue.filter('marked', marked)
+
+    Vue.filter('emoji', function (value) {
+      return value.replace('единорог', '&#129412;')
+        .replace('щенок', '&#128054;')
+        .replace('огне', '&#128293;')
+        .replace('грустно', '&#128546;')
+    })
+    new Vue({
+      el: '#app',
+      data: {
+        input: '',
+        array: [
+          {
+            name: 'Иван',
+            age: 45
+          },
+          {
+            name: 'Вика',
+            age: 19
+          },
+          {
+            name: 'Иван',
+            age: 29
+          },
+          {
+            name: 'Максим',
+            age: 20
+          }
+        ]
+      },
+    })
+  </script>
+</body>
+
+</html>

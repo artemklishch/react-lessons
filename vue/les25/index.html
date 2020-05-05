@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
+    integrity="sha256-WAgYcAck1C1/zEl5sBl5cfyhxtLgKGdpI3oKyJffVRI=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="./style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <form>
+
+      <span>{{ count }} / 30</span>
+
+      <textarea v-model="text"></textarea>
+
+      <button v-if="count <= 30">Отправить</button>
+
+    </form>
+  </div>
+
+
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        text: ''
+      },
+      computed: {
+        count: function () {
+          return this.text.length;
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
