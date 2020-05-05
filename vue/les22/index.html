@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
+    integrity="sha256-WAgYcAck1C1/zEl5sBl5cfyhxtLgKGdpI3oKyJffVRI=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="./style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- <button v-on:click="onClick">Кнопка</button> -->
+    <!-- <form action="">
+      <button v-on:click.prevent="onClick">Кнопка 1</button>
+      <button v-on:click.stop="onClick">Кнопка 2</button>
+    </form> -->
+
+    <input type="text" v-model="message" @keyup.enter="onClick">
+    <!-- <input type="text" v-model="message" v-on:keyup.13="onClick"> -->
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data:{
+        message: '',
+      },
+      methods: {
+        onClick() {
+          console.log(this.message)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
