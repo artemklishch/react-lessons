@@ -14,14 +14,28 @@
   <div class="nav-bar"></div>
   <div id="app">
     <div class="product-image">
-      <img v-bind:src="image" alt="">
+      <img :src="image" alt="">
     </div>
     <div class="product-info">
       <h1>{{product}}</h1>
+      <p v-if="inStock">In Stock</p>
+      <p v-else>Out of Stock</p>
+
+      <ul>
+        <li v-for='detail in details'>{{detail}}</li>
+      </ul>
+      
+      <div v-for='variant in variants' :key="variant.variantId">
+        <p @mouseover="updateProduct(variant.variantImage)">{{variant.variantColor}}</p>
+      </div>
+
+      <button v-on:click="addToCart">Add to Cart</button>
+      <button @click="decrementCart">Decrement Cart</button>
+      <div class="cart">
+        <p>Cart ({{cart}})</p>
+      </div>
+      
     </div>
-  </div>
-  <div class="data-object">
-    <a v-bind:href="url" target="blank">To the second Vue lesson</a>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
