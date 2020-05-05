@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
+    integrity="sha256-WAgYcAck1C1/zEl5sBl5cfyhxtLgKGdpI3oKyJffVRI=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="./style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="vue" :title="message">
+    {{message}}
+    <!-- <h1 v-if="status === 1">Свойство равно 1</h1>
+    <h1 v-else-if="status === 2">Свойство равно 2</h1>
+    <h1 v-else>Свойство равно {{status}}</h1> -->
+
+    <template v-if="status === 1">
+      <h1>Заголовок 1</h1>
+      <p>Описание</p>
+    </template>
+    <template v-else="status === 2">
+      <h1>Заголовок 2</h1>
+      <p>Описание</p>
+    </template>
+
+    <!-- <h1 v-show="status">Заголовок show</h1> -->
+
+    <div :class="{ active: isActive, 'btn-class': isBtn }"></div>
+
+    
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#vue',
+      data: {
+        message: 'Hello vue!',
+        status: 0,
+        isActive: false,
+        isBtn: true,
+      }
+    })
+  </script>
+</body>
+
+</html>
