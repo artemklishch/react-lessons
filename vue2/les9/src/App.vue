@@ -10,11 +10,10 @@
       <products></products>
       <div>
         <span @click="mode = mode === 'view' ? 'add' : 'view'">{{ mode }}</span>
-        <!-- <component :is="componentName"></component> -->
-
         <keep-alive>
           <component :is="componentName"></component>
         </keep-alive>
+        <!-- <component :is="componentName"></component> -->
       </div>
     </div>
   </div>

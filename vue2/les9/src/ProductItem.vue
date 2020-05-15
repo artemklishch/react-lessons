@@ -30,8 +30,6 @@ export default {
   },
   methods: {
     viewDetailsClicked() {
-      // this.$emit("viewDetailsClicked", this.product.id);
-      // this.viewDetailsOnClicked(this.product.id);
       ProductService.viewDetails(this.product.id);
     }
   }

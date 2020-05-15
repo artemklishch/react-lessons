@@ -14,6 +14,7 @@
         <label for="qt">Quantity</label>
         <span>{{ product.qt }}</span>
       </div>
+      {{ this.counter }}
     </form>
   </div>
 </template>
@@ -23,13 +24,46 @@ import ProductService from "./ProductService";
 export default {
   data() {
     return {
-      product: {}
+      product: {},
+      counter: 0,
+      leakyReference: null
     };
   },
+  beforeCreate() {
+    console.log("before create");
+  },
   created() {
+    console.log("created");
+    setInterval(() => this.counter++, 1000);
     ProductService.$on("viewDetails", selectedProduct => {
       this.product = selectedProduct;
     });
+  },
+  beforeMount() {
+    console.log("before mount");
+  },
+  mounted() {
+    console.log("mounted");
+  },
+  beforeUpdate() {
+    // console.log("before update");
+    console.log(this.counter);
+  },
+  updated() {
+    console.log("updated");
+  },
+  beforeDestroy() {
+    this.leakyReference = null;
+    console.log("before destroy");
+  },
+  destroyed() {
+    console.log("destroyed");
+  },
+  activated() {
+    console.log("activated");
+  },
+  deactivated() {
+    console.log("deactivated");
   }
 };
 </script>
