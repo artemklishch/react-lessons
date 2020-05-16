@@ -1,29 +1,17 @@
 <template>
   <div>
     <my-header>
-      <h1>Communication between components in Vue.js</h1>
-      <span>{{ secondPart }}</span>
-      <h2 slot="subtitle">Slots</h2>
-      <span slot="subtitle">Slot - Second part</span>
+      <h1>Routing in Vue.js</h1>
     </my-header>
     <div class="container">
-      <products></products>
-      <div>
-        <span @click="mode = mode === 'view' ? 'add' : 'view'">{{ mode }}</span>
-        <keep-alive>
-          <component :is="componentName"></component>
-        </keep-alive>
-        <!-- <component :is="componentName"></component> -->
-      </div>
+      <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script>
-import ProductsList from "./ProductsList.vue";
-import ProductDetails from "./ProductDetails.vue";
 import myHeader from "./Header.vue";
-import ProductAdd from "./ProductAdd";
+
 export default {
   data() {
     return {
@@ -37,10 +25,7 @@ export default {
     }
   },
   components: {
-    myHeader,
-    ProductAdd,
-    products: ProductsList,
-    ProductDetails
+    myHeader
   }
 };
 </script>

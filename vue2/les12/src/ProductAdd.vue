@@ -2,7 +2,7 @@
   <form>
     <fieldset>
       <div class="form-group">
-        <label for="title">Title</label>
+        <label for="title">Title {{ $route.query.text }}</label>
         <input
           type="text"
           id="title"
@@ -54,6 +54,8 @@ export default {
         this.product.price,
         this.product.qt
       );
+      this.$router.push("/");
+      // this.$router.go(-1);
     }
   }
 };

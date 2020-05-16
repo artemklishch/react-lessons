@@ -16,12 +16,15 @@
       </div>
       {{ this.counter }}
     </form>
+    <!-- <router-link to='/details/2'>go to product 2</router-link> -->
+    <router-link :to="{name: 'home'}">go to list</router-link>
   </div>
 </template>
 
 <script>
 import ProductService from "./ProductService";
 export default {
+  props: ['staticText'],
   data() {
     return {
       product: {},
@@ -29,41 +32,18 @@ export default {
       leakyReference: null
     };
   },
-  beforeCreate() {
-    console.log("before create");
-  },
   created() {
-    console.log("created");
-    setInterval(() => this.counter++, 1000);
     ProductService.$on("viewDetails", selectedProduct => {
       this.product = selectedProduct;
     });
   },
-  beforeMount() {
-    console.log("before mount");
-  },
   mounted() {
-    console.log("mounted");
+    ProductService.viewDetails(this.$route.params.id);
   },
-  beforeUpdate() {
-    // console.log("before update");
-    console.log(this.counter);
-  },
-  updated() {
-    console.log("updated");
-  },
-  beforeDestroy() {
-    this.leakyReference = null;
-    console.log("before destroy");
-  },
-  destroyed() {
-    console.log("destroyed");
-  },
-  activated() {
-    console.log("activated");
-  },
-  deactivated() {
-    console.log("deactivated");
+  watch: {
+    "$route.params.id"(id) {
+      ProductService.viewDetails(id);
+    }
   }
 };
 </script>
