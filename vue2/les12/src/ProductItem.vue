@@ -22,12 +22,6 @@ export default {
       type: Number
     }
   },
-  data() {
-    return {
-      //product: {},
-      //index: 1
-    };
-  },
   methods: {
     viewDetailsClicked() {
       // ProductService.viewDetails(this.product.id);

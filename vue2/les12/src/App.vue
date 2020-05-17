@@ -13,17 +13,6 @@
 import myHeader from "./Header.vue";
 
 export default {
-  data() {
-    return {
-      secondPart: "Second part",
-      mode: "view"
-    };
-  },
-  computed: {
-    componentName() {
-      return this.mode === "view" ? "ProductDetails" : "ProductAdd";
-    }
-  },
   components: {
     myHeader
   }
