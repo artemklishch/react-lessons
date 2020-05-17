@@ -13,11 +13,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="user in items">
+        <tr v-for="(user, index) in items">
           <th scope="row">{{ user.date }}</th>
           <td>{{ user.name }}</td>
           <td>{{ user.address }}</td>
-          <td>remove</td>
+          <td>
+            <button @click="func(index)">Remove</button>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -33,12 +35,12 @@ export default {
   data() {
     return {
       header: "Users",
-      listName: 'users'
+      listName: "users"
     };
   },
   methods: {
-    deleteUser(index) {
-      service.deleteUser(index);
+    func(index) {
+      this.$emit("deleteItem", index, "deleteUser");
     },
     filterDate(value, row) {
       return row.date === value;

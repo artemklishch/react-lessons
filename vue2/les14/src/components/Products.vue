@@ -13,11 +13,16 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="product in items">
+        <tr v-for="(product, index) in items">
           <th scope="row">{{ product.title }}</th>
           <td>{{ product.price }}</td>
           <td>{{ product.qt }}</td>
-          <td>Remove</td>
+          <td>
+            <!-- <template slot-scope="scope">
+              <button @click.native.prevent="$emit("deleteItem", scope.$index, "deleteProduct")">Remove</button>
+            </template> -->
+            <button @click="func(index)">Remove</button>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -25,20 +30,16 @@
 </template>
 
 <script>
-import service from "../service";
-import list from "../mixins/list";
-
 export default {
-  mixins: [list],
+  props: ["items"],
   data() {
     return {
-      header: "Header",
-      listName: "products"
+      header: "Header"
     };
   },
   methods: {
-    deleteProduct(index) {
-      return service.deleteProduct(index);
+    func(index) {
+      this.$emit("deleteItem", index, "deleteProduct");
     }
   }
 };

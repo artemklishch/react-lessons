@@ -12,14 +12,18 @@
 <script>
 import Users from "./components/Users";
 import Products from "./components/Products";
+import appSection from "./components/appSection";
+
+const sectionUsers = appSection(Users, "users");
+const sectionProducts = appSection(Products, "products");
 
 export default {
   data() {
     return {};
   },
   components: {
-    Users,
-    Products
+    Users: sectionUsers,
+    Products: sectionProducts
   }
 };
 </script>
