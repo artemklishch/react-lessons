@@ -14,14 +14,18 @@
 <script>
 import ProductItem from "./ProductItem.vue";
 import ProductService from "./ProductService";
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions, mapMutations, mapState } from "vuex";
 export default {
   data() {
     return {};
   },
-  computed: mapGetters({
-    products: "getProducts"
-  }),
+  computed: {
+    // ...mapGetters({
+    //   products: "getProducts"
+    // })
+    ...mapState(["products"])
+  },
+  // computed: mapGetters(["getProducts"]),
   // computed: {
   //   products() {
   //     // return this.$store.state.products;
@@ -31,10 +35,14 @@ export default {
   components: {
     ProductItem
   },
+  methods: {
+    ...mapActions(["loadProducts"])
+  },
   created() {
     // this.products = ProductService.products;
     // this.$store.commit("loadProducts", ProductService.products);
-    this.$store.dispatch("loadProducts", ProductService.products);
+    // this.$store.dispatch("loadProducts", ProductService.products);
+    this.loadProducts(ProductService.products);
   }
 };
 </script>
