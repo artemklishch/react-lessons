@@ -21,12 +21,24 @@ export default {
       this.$store.dispatch("EXECUTE_OPERATION");
     }
   },
-  watch: {
-    status(newValue, oldValue) {
-      if (newValue === "ok") {
-        this.msg = "Operation completed... doing something important";
+  // 1 watch in component
+  // watch: {
+  //   status(newValue, oldValue) {
+  //     if (newValue === "ok") {
+  //       this.msg = "Operation completed... doing something important";
+  //     }
+  //   }
+  // }
+  // 2 watch in store
+  mounted() {
+    this.$store.watch(
+      (state, getters) => state.status,
+      (newValue, oldValue) => {
+        if (newValue === "ok") {
+          this.msg = "Operation completed... doing something important";
+        }
       }
-    }
+    );
   }
 };
 </script>
