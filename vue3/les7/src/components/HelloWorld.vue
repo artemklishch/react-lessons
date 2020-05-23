@@ -41,9 +41,19 @@ export default {
   //   );
   // }
   // 3 subscribe for mutation/action
+  // mounted() {
+  //   this.$store.subscribe((mutation, state) => {
+  //     switch (mutation.type) {
+  //       case "UPDATE_STATUS":
+  //         const status = state.status;
+  //         if (status === "ok") this.msg = "Operation completed... doing something important";
+  //         break;
+  //     }
+  //   });
+  // }
   mounted() {
-    this.$store.subscribe((mutation, state) => {
-      switch (mutation.type) {
+    this.$store.subscribeAction((action, state) => {
+      switch (action.type) {
         case "UPDATE_STATUS":
           const status = state.status;
           if (status === "ok") this.msg = "Operation completed... doing something important";
