@@ -30,15 +30,26 @@ export default {
   //   }
   // }
   // 2 watch in store
+  // mounted() {
+  //   this.$store.watch(
+  //     (state, getters) => state.status,
+  //     (newValue, oldValue) => {
+  //       if (newValue === "ok") {
+  //         this.msg = "Operation completed... doing something important";
+  //       }
+  //     }
+  //   );
+  // }
+  // 3 subscribe for mutation/action
   mounted() {
-    this.$store.watch(
-      (state, getters) => state.status,
-      (newValue, oldValue) => {
-        if (newValue === "ok") {
-          this.msg = "Operation completed... doing something important";
-        }
+    this.$store.subscribe((mutation, state) => {
+      switch (mutation.type) {
+        case "UPDATE_STATUS":
+          const status = state.status;
+          if (status === "ok") this.msg = "Operation completed... doing something important";
+          break;
       }
-    );
+    });
   }
 };
 </script>
