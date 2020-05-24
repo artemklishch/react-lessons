@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import { storeMutations } from "../store/store";
 export default {
   data() {
     return {
@@ -14,7 +15,9 @@ export default {
     };
   },
   methods: {
-    save() {},
+    save() {
+      storeMutations.setName(this.name);
+    },
   },
 };
 </script>

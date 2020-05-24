@@ -1,20 +1,16 @@
 <template>
   <div class="container">
-    <label for="name">Name</label>
-    <input type="text" id="name" v-model="name" />
-    <button @click="save">Save</button>
+    <h1>Your name is {{ name }}</h1>
   </div>
 </template>
 
 <script>
+import { store } from "../store/store";
 export default {
   data() {
     return {
-      name: "",
+      name: store.name,
     };
-  },
-  methods: {
-    save() {},
   },
 };
 </script>
@@ -23,7 +19,7 @@ export default {
 .container {
   width: 600px;
   height: 50px;
-  background-color: rgb(144, 207, 207);
+  background-color: rgb(109, 211, 163);
   margin-bottom: 10px;
   vertical-align: middle;
   padding-top: 10px;
