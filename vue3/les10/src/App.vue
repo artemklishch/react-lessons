@@ -18,7 +18,7 @@ export default {
     HelloWorld,
   },
   methods: {
-    setLocale() {
+    setLocale(locale) {
       this.$i18n.locale = locale;
     },
   },
