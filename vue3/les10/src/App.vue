@@ -19,7 +19,11 @@ export default {
   },
   methods: {
     setLocale(locale) {
-      this.$i18n.locale = locale;
+      import(`./langs/${locale}.json`).then((msgs) => {
+        this.$i18n.setLocaleMessage(locale, msgs);
+        this.$i18n.locale = locale;
+      });
+      // this.$i18n.locale = locale;
     },
   },
 };

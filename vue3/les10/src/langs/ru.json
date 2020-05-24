@@ -1,0 +1,6 @@
+{
+  "welcomeMsg": "Приветствую во Vue.js App",
+  "pluginsTxt": "Установленые CLI Plugins",
+  "guideTxt": "Для руководства и примеров как настроить этот проект,{break} смотреть {action}",
+  "guideDocTxt": "vue-cli документацию"
+}
