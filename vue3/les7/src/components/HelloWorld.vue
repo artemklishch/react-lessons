@@ -54,7 +54,7 @@ export default {
   mounted() {
     this.$store.subscribeAction((action, state) => {
       switch (action.type) {
-        case "UPDATE_STATUS":
+        case "EXECUTE_OPERATION":
           const status = state.status;
           if (status === "ok") this.msg = "Operation completed... doing something important";
           break;
