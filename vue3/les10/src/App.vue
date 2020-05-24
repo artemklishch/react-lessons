@@ -2,9 +2,10 @@
   <div id="app">
     <div>
       <a href="#" @click="setLocale('en')"><flag iso="us"></flag></a>
+      <a href="#" @click="setLocale('ru')"><flag iso="ru"></flag></a>
     </div>
     <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <HelloWorld :msg="$t('welcomeMsg')" />
   </div>
 </template>
 
@@ -15,6 +16,11 @@ export default {
   name: "App",
   components: {
     HelloWorld,
+  },
+  methods: {
+    setLocale() {
+      this.$i18n.locale = locale;
+    },
   },
 };
 </script>
