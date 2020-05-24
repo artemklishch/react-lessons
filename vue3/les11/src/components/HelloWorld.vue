@@ -1,6 +1,9 @@
 <template>
   <div class="hello">
-    <button @click="toComments">To hello world</button>
+    <h1>{{ msg }}</h1>
+    <h4 v-for="(record, i) in $store.state.routerHistory" :key="i">
+      {{ record }}
+    </h4>
   </div>
 </template>
 
@@ -10,11 +13,7 @@ export default {
   props: {
     msg: String,
   },
-  methods: {
-    toComments() {
-      this.$router.push("/world");
-    },
-  },
+  methods: {},
 };
 </script>
 
