@@ -2,6 +2,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+
 const User = ({ data }) => {
   const { name, location, avatar_url } = data;
 
@@ -15,6 +16,7 @@ const User = ({ data }) => {
     </div>
   );
 };
+
 
 User.propTypes = {
   data: PropTypes.shape({

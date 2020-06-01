@@ -1,21 +1,20 @@
 import React from "react";
 import User from "./User";
 import City from "./City";
-// import { withDataLoader } from "./withDataLoader";
+import withDataLoader from "./withDataLoader";
 
-// const MyCity = withDataLoader(
-//   "https://5e5cf5eb97d2ea0014796f01.mockapi.io/api/v1/cities/1"
-// )(City);
+const MyCity = withDataLoader(
+  City,
+  "https://5e5cf5eb97d2ea0014796f01.mockapi.io/api/v1/cities/1"
+);
 
-// const SuperUser = withDataLoader("https://api.github.com/users/octocat")(User);
+const SuperUser = withDataLoader(User, "https://api.github.com/users/octocat");
 
 const App = () => {
   return (
     <div className="page">
-      {/* <MyCity />
-      <SuperUser /> */}
-      <City data='"https://5e5cf5eb97d2ea0014796f01.mockapi.io/api/v1/cities/1"' />
-      <User data='https://api.github.com/users/octocat' />
+      <MyCity />
+      <SuperUser />
     </div>
   );
 };

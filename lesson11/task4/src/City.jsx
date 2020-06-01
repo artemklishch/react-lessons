@@ -12,6 +12,7 @@ const City = ({ data }) => {
   );
 };
 
+
 City.propTypes = {
   data: PropTypes.shape({
     name: PropTypes.string.isRequired,
