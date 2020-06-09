@@ -107,11 +107,11 @@ const app = new Vue({
     },
     removeCart(id){
       let num = 0;
-      const number = this.cart.find((ident,index) => {
-        ident === id
-        num = index
+      this.cart.forEach((ident,index) => {
+        if(ident === id) num = index
       })
-      this.cart.splice(number, 1)
+      
+      this.cart.splice(num, 1)
     }
   }
 });
