@@ -44,6 +44,7 @@ const router = new Router({
 // });
 
 router.beforeEach((to, from, next) => {
+  console.log(to.matched)
   if (to.matched.some((record) => record.meta.needsAuthorization)) {
     if (store.state.isAuthorized) {
       next();
