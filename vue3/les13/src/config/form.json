@@ -1,0 +1,46 @@
+[
+    {
+        "type": "Input",
+        "label": "First Name",
+        "name": "firstname",
+        "validation": "required"
+    },
+    {
+        "type": "Input",
+        "label": "Last Name",
+        "name": "lastname",
+        "validation": "required"
+    },
+    {
+        "type": "Input",
+        "label": "Email",
+        "name": "email",
+        "validation": "required|email"
+    },
+    {
+        "type": "Checkbox",
+        "label": "Do you like Vue.js?",
+        "name": "likeVue"
+    },
+    {
+        "type": "RadioButton",
+        "label": "Best Framework",
+        "name": "bestFramework",
+        "params": {
+            "options": [
+                {
+                    "value": "1",
+                    "label": "VueJS"
+                },
+                {
+                    "value": "2",
+                    "label": "React"
+                },
+                {
+                    "value": "3",
+                    "label": "Angular"
+                }
+            ]
+        }
+    }
+]
