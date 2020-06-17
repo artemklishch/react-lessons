@@ -22,4 +22,51 @@ const rect2: Rect = {
         height: 20
     }
 }
+rect2.color = 'black'
+//rect2.id = '3453535'
+
+const rect3 = {} as Rect;
+const rect4 = <Rect>{};
+
 console.log(rect1, rect2)
+
+
+//=============
+
+interface RectWithArea extends Rect {
+    getArea: () => number
+}
+const rect5: RectWithArea = {
+    id: '123',
+    size: {
+        width: 20,
+        height: 20
+    },
+    getArea() {
+        return this.size.width * this.size.height
+    }
+}
+
+
+//==============
+interface IClock {
+    time: Date,
+    setTime(data: Date): void
+}
+class Clock implements IClock {
+    time: Date = new Date()
+    setTime(date: Date): void {
+        this.time = date
+        console.log(this.time)
+    }
+}
+new Clock().setTime(new Date('2020-01-01'))
+//===============
+interface Styles {
+    [key: string]: string
+}
+const css: Styles = {
+    border: '1px solid black',
+    marginTop: '2px',
+    borderRadius: '5px'
+}
