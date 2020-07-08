@@ -36,16 +36,21 @@ const validateSchema = Yup.object({
   channel: Yup.string().required("Req"),
 });
 
+const resOnChange = () => {
+  console.log("It has changed");
+};
+
 function OldYouTubeForm() {
   const formik = useFormik({
     initialValues,
     onSubmit,
     // validate,
+    // onChange: resOnChange, // this is doesn`t work!!!!!!!!!!
     validationSchema: validateSchema,
   });
   // console.log("Form values", formik.values);
   //   console.log("Form errors", formik.errors);
-  console.log("Visited fields", formik.touched);
+  // console.log("Visited fields", formik.touched);
   return (
     <div className="form-control">
       <form onSubmit={formik.handleSubmit}>
@@ -55,10 +60,10 @@ function OldYouTubeForm() {
             type="text"
             id="name"
             name="name"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.name}
-            // {...formik.getFieldProps("channel")}
+            // onChange={formik.handleChange}
+            // onBlur={formik.handleBlur}
+            // value={formik.values.name}
+            {...formik.getFieldProps("name")} //this expression replaces above three ones
           />
           {formik.touched.name && formik.errors.name ? (
             <div className="error">{formik.errors.name}</div>
@@ -74,7 +79,7 @@ function OldYouTubeForm() {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.email}
-            // {...formik.getFieldProps("channel")}
+            // {...formik.getFieldProps("email")}
           />
           {formik.touched.email && formik.errors.email ? (
             <div className="error">{formik.errors.email}</div>
