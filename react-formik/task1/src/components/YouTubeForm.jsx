@@ -49,6 +49,7 @@ const validateSchema = Yup.object({
   name: Yup.string().required("Req"),
   email: Yup.string().email("Invalid format").required("Req"),
   channel: Yup.string().required("Req"),
+  address: Yup.string().required("Req"),
 });
 
 const validateComments = (value) => {
@@ -161,11 +162,11 @@ const validateComments = (value) => {
 //           <label htmlFor="">List of phone numbers</label>
 //           <FieldArray name="phNumbers">
 //             {(fieldArrayProps) => {
-//               // console.log("fieldArrayProps", fieldArrayProps);
+//               console.log("fieldArrayProps", fieldArrayProps);
 //               const { push, remove, form } = fieldArrayProps;
 //               const { values } = form;
 //               const { phNumbers } = values;
-//               console.log("Form errors", form.errors);
+//               // console.log("Form errors", form.errors);
 //               return (
 //                 <div>
 //                   {phNumbers.map((phNumber, index) => (
@@ -206,7 +207,7 @@ function YouTubeForm() {
       // validateOnMount
     >
       {(formik) => {
-        console.log("Formik props", formik);
+        // console.log("Formik props", formik);
         return (
           <Form>
             <div className="form-control">
