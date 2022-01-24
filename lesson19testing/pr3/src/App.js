@@ -42,7 +42,7 @@ function App() {
       <Search value={search} onChange={handleChange}>
         SEARCH:
       </Search>
-      <p>Searches for: {search ? search : "..."}</p>
+      <p>Searches for {search ? search : "..."}</p>
       <img src={logo} className="App-logo" alt="logo" />
     </div>
   );
